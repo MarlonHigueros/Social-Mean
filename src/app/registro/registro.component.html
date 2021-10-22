@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Register </title>
+    <link rel="stylesheet" href="./registro.component.css">
+  </head>
+  <body>
+    
+    <div class="login-box">      
+      
+      <h1>Registro</h1>
+      <form form-Group="formUser" (ngSubmit)="onSubmit()"> 
+              
+        
+        <label for="name">Nombre</label>
+        <input type="text" name="name" [(ngModel)]="user.name" class="form-control">
+         
+
+        <label for="surname">Apellido</label>
+        <input type="text" name="surname" [(ngModel)]="user.surname" class="form-control">
+
+        <label for="nick">Nick</label>
+        <input type="text" name="nick" [(ngModel)]="user.nick" class="form-control">
+
+        <label for="email">Correo</label>
+        <input type="email" name="email" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control">
+
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" [(ngModel)]="user.password" class="form-control">
+
+        <button type="submit"  class="btn bg-info" [disabled]="!user.name || !user.surname || !user.nick || !user.email || !user.password" >log up</button>  
+        &nbsp;      
+        <a href="/login">Ya tienes una cuenta?</a>
+      </form>
+    </div>
+  </body>
+</html>
