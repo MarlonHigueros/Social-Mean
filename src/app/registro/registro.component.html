@@ -6,7 +6,16 @@
   </head>
   <body>
     
-    <div class="login-box">      
+    
+
+    <div class="login-box"> 
+      <div class = "alert-success" *ngIf="status == 'success'">
+        Registro completado correctamente <a href="/login">Identificate aqui</a>
+      </div>
+  
+      <div class = "alert-danger" *ngIf="status == 'error'">
+        El Registro no fue completado
+      </div>             
       
       <h1>Registro</h1>
       <form form-Group="formUser" (ngSubmit)="onSubmit()"> 

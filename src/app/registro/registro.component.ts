@@ -17,7 +17,8 @@ import { UserService } from '../services/user.service';
 export class RegistroComponent implements OnInit {
 
   public title: string;
-  
+  public status: string | undefined;
+
   user: User = {
     _id:  '',
     name:  '',
@@ -51,8 +52,10 @@ export class RegistroComponent implements OnInit {
     this._userService.register(this.user).subscribe(
       response => {
         if (response.user && response.user._id){
-          console.log(response.user);
-          
+          //console.log(response.user);  
+          this.status  = 'success';      
+        }else{
+          this.status = 'error';
         }
       },
       error => {
